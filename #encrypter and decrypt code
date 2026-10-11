@@ -1,0 +1,52 @@
+#encrypter and decrypter program
+
+import string
+
+code = {
+    'g': '78667', 'n': '45637', 'j': '48239', 'b': '72426', 't': '05621', 'd': '19660', 'h': '28860',
+    'x': '90550', 'w': '72991', 'k': '38905', 'e': '01207', 'o': '15520', 'p': '58157', 'z': '54837',
+    'y': '34655', 'v': '51361', 's': '76337', 'c': '10827', 'q': '14254', 'u': '53540', 'i': '36677',
+    'l': '31995', 'a': '00446', 'f': '98253', 'r': '62108', 'm': '29901', 'F': '02460', 'M': '92040',
+    'G': '51546', 'B': '52194', 'X': '57348', 'Q': '14174', 'S': '62926', 'D': '28140', 'H': '61870',
+    'T': '59640', 'U': '17596', 'I': '80083', 'P': '57742', 'Y': '84094', 'Z': '74935', 'W': '47205',
+    'L': '78681', 'N': '96616', 'J': '16971', 'O': '42201', 'R': '80308', 'A': '62688', 'K': '34209',
+    'V': '10626', 'E': '84365', 'C': '74577', '0': '83810', '1': '14592', '2': '03278', '3': '97196',
+    '4': '36048', '5': '32098', '6': '29256', '7': '18289', '8': '96530', '9': '13434', '!': '88696',
+    '"': '97080', '#': '71482', '$': '11395', '%': '77397', '&': '55302', "'": '04165', '(': '03905',
+    ')': '12280', '*': '28657', '+': '30495', ',': '66237', '-': '78907', '.': '03478', '/': '73563',
+    ':': '26062', ';': '93850', '<': '85181', '=': '91924', '>': '31284', '?': '54987', '@': '28893',
+    '[': '58878', '\\': '77236', ']': '36463', '^': '00851', '_': '99458', '`': '20926', '{': '91506',
+    '|': '55392', '}': '44597', '~': '36421', ' ': '20379'
+}
+
+decode = {v: k for k, v in code.items()}
+
+def encrypt() :
+    message = input("Enter the message to encrypt: ")
+    text = list(message)
+    i = len(text)
+    for i in range(i):
+        if text[i] in code:
+            text[i] = code[text[i]]
+    emessage = ''.join(text)
+    return emessage
+
+def decrypt() :
+    message = input("Enter the message to decrypt: ")
+    text = list(message)
+    i = len(text)
+    for i in range(i):
+        if text[i] in decode:
+            text[i] = decode[text[i]]
+    dmessage = ''.join(text)
+    return dmessage
+
+print("Welcome to the encrypter and decrypter program" )
+choice = input("Enter 'e' to encrpyt and ' d' to decrypt: ")
+
+if choice == 'e' :
+    print("The encrypted message is:", encrypt())
+elif choice == 'd' :
+    print("The decrypted message is:", decrypt())
+else:
+    print("Invalid choice. Please enter 'e' to encrypt or 'd' to decrypt.")
